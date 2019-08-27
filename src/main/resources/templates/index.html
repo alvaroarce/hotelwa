@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en-US" >
+<head>
+    <meta charset="utf-8"></meta>
+    <title>index</title>
+</head>
+<style>
+input[type=text], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  width: 100%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+div {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+</style>
+<body>
+
+<h2>Registro de Hoteles</h2>
+
+<div>
+    <form method= "post" action="/hotel/save" object="${newHotel}">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" placeholder="Name.." field="*{name}">
+
+        <label for="identification">Identificacion</label>
+        <input type="text" id="identification" name="identification" placeholder="Identificacion.."field="*{identification}" >
+
+        <label for="number_rooms">Numero de habitaciones</label>
+        <input type="text" id="number_rooms" name="number_rooms" placeholder="Numero de Habitaciones..">
+
+        <label for="numbers_star">Numero de estrellas</label>
+        <input type="text" id="numbers_star" name="numbers_star" placeholder="Numero de estrellas..">
+
+        <label for="location">Provincia</label>
+        <input type="text" id="location" name="location" placeholder="Provincia donde se encuentra..">
+
+        <label for="address">Address</label>
+        <input type="text" id="address" name="address" placeholder="Direccion exacta..">
+
+        <input type="submit" value="Registrar">
+    </form>
+</div>
+</body>
+</html>
