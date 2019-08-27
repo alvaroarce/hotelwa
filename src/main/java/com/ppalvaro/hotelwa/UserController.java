@@ -1,5 +1,6 @@
 package com.ppalvaro.hotelwa;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -23,6 +24,12 @@ public class UserController {
     @PostMapping
     public Usuario create(@RequestBody Usuario user){
         return repository.save(user);
+    }
+
+    @GetMapping(path = { "/{id}" })
+    public ResponseEntity<Usuario> findById(@PathVariable long id) {
+        return repository.findById(id).map(record -> ResponseEntity.ok().body(record))
+                .orElse(ResponseEntity.notFound().build());
     }
 
 }
