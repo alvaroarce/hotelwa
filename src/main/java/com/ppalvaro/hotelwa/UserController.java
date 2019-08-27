@@ -32,4 +32,25 @@ public class UserController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
+    @PutMapping(value = "/{id}")
+    public ResponseEntity<Usuario> update(@PathVariable("id") long id, @RequestBody Usuario usuario) {
+        return repository.findById(id).map(record -> {
+            record.setName(usuario.getName());
+            record.setLastName(usuario.getLastName());
+            record.setIdentification(usuario.getIdentification());
+            record.setEmail(usuario.getEmail());
+            record.setPassword(usuario.getPassword());
+            Usuario updated = repository.save(record);
+            return ResponseEntity.ok().body(updated);
+        }).orElse(ResponseEntity.notFound().build());
+    }
+
+    @DeleteMapping(path = { "/{id}" })
+    public ResponseEntity<?> delete(@PathVariable("id") long id) {
+        return repository.findById(id).map(record -> {
+            repository.deleteById(id);
+            return ResponseEntity.ok().build();
+        }).orElse(ResponseEntity.notFound().build());
+    }
+
 }
