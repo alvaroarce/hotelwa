@@ -21,14 +21,8 @@ public class UserController {
     }
 
     @PostMapping
-    public Usuario create(Usuario user){
-//        user.setName("name");
-//        user.setLast_name("last");
-//        user.setIdentification("123");
-//        user.setEmail("asd");
-//        user.setPassword("pass");
-        //return repository.save(user);
-        return null;
+    public Usuario create(@RequestBody Usuario user){
+        return repository.save(user);
     }
 
 }
