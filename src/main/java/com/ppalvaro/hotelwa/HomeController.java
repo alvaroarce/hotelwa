@@ -1,25 +1,29 @@
 package com.ppalvaro.hotelwa;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.text.ParseException;
 import java.util.List;
 
-@RestController
-@RequestMapping("/hotel")
-public class HotelController {
+@Controller
+@RequestMapping("/home")
+public class HomeController {
 
     private HotelRepository repository;
 
-    public HotelController(HotelRepository repository){
+    public HomeController(HotelRepository repository){
         this.repository = repository;
     }
 
-    @GetMapping()
-    public List getAll(){
-        return repository.findAll();
+    @GetMapping("/list")
+    public String list(Model model){
+        List<Hotel> listHotels = repository.findAll();
+        model.addAttribute("listHoteles", listHotels);
+        return "list";
     }
 
     @PostMapping("/registrar")
@@ -61,7 +65,23 @@ public class HotelController {
     public String save(@ModelAttribute("newHotel") Hotel newHotel) {
         newHotel.setCreation_date("27/08/2019");
         repository.save(newHotel);
-        return "redirect:/home/list";
+        return "index";
+    }
+
+    @RequestMapping("/list")
+    public String listFarms(Model model) throws ParseException {
+        List<Hotel> listFarms= repository.findAll();
+        model.addAttribute("listFarms", listFarms);
+        return "ListHotels";
+    }
+
+    @RequestMapping("/edit/{id}")
+    public ModelAndView showEditFarm(@PathVariable(name = "id") Long id) {
+        ModelAndView edit = new ModelAndView("edit_hotel");
+
+        Hotel newHotel= repository.findById(id).get();
+        edit.addObject("newHotel", newHotel);
+        return edit;
     }
 
 }

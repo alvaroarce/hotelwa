@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Edit hotel</title>
+</head>
+<body>
+<div align="center">
+    <h1 align="center">Edit new hotel</h1>
+    <form action="#" action="@{/save}" object="${newHotel}" method="post">
+
+    <table border="0" style="width: 18%">
+
+            <tr>
+                <td>ID</td>
+                <td><input type="text" field="*{id}" readonly="readonly" /></td>
+            </tr>
+            <tr>
+                <td>Name</td>
+                <td><input type="text" field="*{name}" /></td>
+            </tr>
+            <tr>
+                <td>Identificacion</td>
+                <td><input type="text" field="*{identification}" /></td>
+            </tr>
+            <tr>
+                <td>number de estrellas</td>
+                <td><input type="numero" field="*{numbers_star}" /></td>
+            </tr>
+            <tr>
+                <td>numero habitaciones</td>
+                <td><input type="numero" field="*{number_rooms}" /></td>
+            </tr>
+            <tr>
+                <td>Provincia</td>
+                <td><input type="text" field="*{location}" /></td>
+            </tr>
+
+            <tr>
+                <br />
+                <td colspan="2"><button type="submit">Save</button></td>
+            </tr>
+        </table>
+    </form>
+</div>
+</body>
+</html>

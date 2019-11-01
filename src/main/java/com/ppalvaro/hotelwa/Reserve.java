@@ -22,7 +22,7 @@ public class Reserve {
     private String id_hotel;
     private String startDate;
     private String finalDate;
-    private int numbers_rooms;
+    private int number_rooms;
 
     public Long getId() {
         return id;
@@ -65,10 +65,10 @@ public class Reserve {
     }
 
     public int getNumbers_rooms() {
-        return numbers_rooms;
+        return number_rooms;
     }
 
     public void setNumbers_rooms(int numbers_rooms) {
-        this.numbers_rooms = numbers_rooms;
+        this.number_rooms = numbers_rooms;
     }
 }

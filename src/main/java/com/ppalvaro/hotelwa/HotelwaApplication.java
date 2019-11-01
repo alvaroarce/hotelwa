@@ -5,7 +5,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages= {"com.ppalvaro.hotelwa"})
 public class HotelwaApplication {
 
 	public static void main(String[] args) {

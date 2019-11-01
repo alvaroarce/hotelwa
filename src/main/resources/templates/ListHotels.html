@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en-US" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"></meta>
+    <meta http-equiv="Content-Type" content="text/html"></meta>
+    <title>List Farms</title>
+</head>
+<body>
+<div align="center">
+    <h1>List Farms</h1>
+    <a href="newFarm"> <h3>Registrar nuevo hotel </h3></a>
+    <br/>
+    <table border="1" style="width: 80%">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Numero de habitaciones</th>
+            <th>Numero de estrellas</th>
+            <th>Provincia</th>
+            <th>Direccion exacta</th>
+            <th>Fecha de registro</th>
+            <th>Acciones</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each = "hotel: ${listHoteles}">
+            <td th:text="${hotel.id}" >ID</td>
+            <td th:text="${hotel.name}">Name </td>
+            <td th:text="${hotel.number_rooms}">Telephone</td>
+            <td th:text="${hotel.numbers_star}">Telephone2</td>
+            <td th:text="${hotel.location}">Address</td>
+            <td th:text="${hotel.address}">Area</td>
+            <td th:text="${hotel.creacion_date}">Built Space</td>
+            <td>
+                <a th:href="@{'/edit/' + ${hotel.id}}" style= "width: 2px" >Edit</a>&nbsp;
+                <a th:href="@{'/delete/' + ${hotel.id}}">Delete</a>&nbsp;
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
